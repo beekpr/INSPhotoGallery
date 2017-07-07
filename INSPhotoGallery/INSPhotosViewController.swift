@@ -28,8 +28,8 @@ public typealias INSPhotosViewControllerDeletePhotoHandler = (_ photo: INSPhotoV
 
 open class INSPhotosViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIViewControllerTransitioningDelegate {
     
-    /* 
-     * Returns the view from which to animate for object conforming to INSPhotoViewable 
+    /*
+     * Returns the view from which to animate for object conforming to INSPhotoViewable
      */
     open var referenceViewForPhotoWhenDismissingHandler: INSPhotosViewControllerReferenceViewHandler?
     
@@ -72,7 +72,7 @@ open class INSPhotosViewController: UIViewController, UIPageViewControllerDataSo
             view.addSubview(overlayView.view())
         }
     }
-
+    
     /*
      * INSPhotoViewController is currently displayed by page view controller
      */
@@ -154,7 +154,7 @@ open class INSPhotosViewController: UIViewController, UIPageViewControllerDataSo
     private func initialSetupWithInitialPhoto(_ initialPhoto: INSPhotoViewable? = nil) {
         overlayView.photosViewController = self
         setupPageViewControllerWithInitialPhoto(initialPhoto)
-
+        
         modalPresentationStyle = .custom
         transitioningDelegate = self
         modalPresentationCapturesStatusBarAppearance = true
@@ -171,7 +171,7 @@ open class INSPhotosViewController: UIViewController, UIPageViewControllerDataSo
     }
     
     // MARK: - View Life Cycle
-
+    
     override open func viewDidLoad() {
         super.viewDidLoad()
         view.tintColor = UIColor.white
@@ -318,7 +318,7 @@ open class INSPhotosViewController: UIViewController, UIPageViewControllerDataSo
     }
     
     // MARK: - UIPageViewControllerDataSource / UIPageViewControllerDelegate
-
+    
     private func initializePhotoViewControllerForPhoto(_ photo: INSPhotoViewable) -> INSPhotoViewController {
         let photoViewController = INSPhotoViewController(photo: photo)
         singleTapGestureRecognizer.require(toFail: photoViewController.doubleTapGestureRecognizer)
@@ -349,9 +349,9 @@ open class INSPhotosViewController: UIViewController, UIPageViewControllerDataSo
     
     @objc open func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let photoViewController = viewController as? INSPhotoViewController,
-           let photoIndex = dataSource.indexOfPhoto(photoViewController.photo),
-           let newPhoto = dataSource[photoIndex-1] else {
-            return nil
+            let photoIndex = dataSource.indexOfPhoto(photoViewController.photo),
+            let newPhoto = dataSource[photoIndex-1] else {
+                return nil
         }
         return initializePhotoViewControllerForPhoto(newPhoto)
     }
@@ -385,7 +385,7 @@ open class INSPhotosViewController: UIViewController, UIPageViewControllerDataSo
         transitionAnimator.dismissing = true
         return transitionAnimator
     }
-
+    
     open func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         if interactiveDismissal {
             transitionAnimator.endingViewForAnimation = transitionAnimator.endingView?.ins_snapshotView()

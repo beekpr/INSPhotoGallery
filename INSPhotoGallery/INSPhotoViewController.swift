@@ -18,6 +18,7 @@
 //  limitations under the License.
 
 import UIKit
+import YYWebImage
 
 open class INSPhotoViewController: UIViewController, UIScrollViewDelegate {
     var photo: INSPhotoViewable
@@ -84,7 +85,7 @@ open class INSPhotoViewController: UIViewController, UIScrollViewDelegate {
         } else {
             loadThumbnailImage()
         }
-
+        
     }
     
     open override func viewWillLayoutSubviews() {
@@ -94,42 +95,59 @@ open class INSPhotoViewController: UIViewController, UIScrollViewDelegate {
     
     private func loadThumbnailImage() {
         view.bringSubview(toFront: activityIndicator)
-        photo.loadThumbnailImageWithCompletionHandler { [weak self] (image, error) -> () in
-            
-            let completeLoading = {
-                self?.scalingImageView.image = image
-                if image != nil {
-                    self?.activityIndicator.stopAnimating()
+        self.scalingImageView.imageView.yy_setImage(with: self.photo.imageURL,
+                                                    placeholder: nil,
+                                                    options: .setImageWithFadeAnimation,
+                                                    progress: { (_, _) in
+                                                        
+        }, transform: { (image, _) -> UIImage? in
+            return image
+        }) { [weak self] (image, url, webImageFromType, webImageState, error) in
+            if let image = image {
+                let completeLoading = {
+                    self?.scalingImageView.image = image
+                    if image != nil {
+                        self?.activityIndicator.stopAnimating()
+                    }
+                    self?.loadFullSizeImage()
                 }
-                self?.loadFullSizeImage()
-            }
-            
-            if Thread.isMainThread {
-                completeLoading()
-            } else {
-                DispatchQueue.main.async(execute: { () -> Void in
+                
+                if Thread.isMainThread {
                     completeLoading()
-                })
+                } else {
+                    DispatchQueue.main.async(execute: { () -> Void in
+                        completeLoading()
+                    })
+                }
             }
         }
     }
     
     private func loadFullSizeImage() {
         view.bringSubview(toFront: activityIndicator)
-        self.photo.loadImageWithCompletionHandler({ [weak self] (image, error) -> () in
-            let completeLoading = {
-                self?.activityIndicator.stopAnimating()
-                self?.scalingImageView.image = image    
-            }
-            
-            if Thread.isMainThread {
-                completeLoading()
-            } else {
-                DispatchQueue.main.async(execute: { () -> Void in
+        self.scalingImageView.imageView.yy_setImage(with: self.photo.imageURL,
+                                                    placeholder: nil,
+                                                    options: .setImageWithFadeAnimation,
+                                                    progress: { (_, _) in
+                                                        
+        }, transform: { (image, _) -> UIImage? in
+            return image
+        }) { [weak self] (image, url, webImageFromType, webImageState, error) in
+            if let image = image {
+                let completeLoading = {
+                    self?.activityIndicator.stopAnimating()
+                    self?.scalingImageView.image = image
+                }
+                
+                if Thread.isMainThread {
                     completeLoading()
-                })
+                } else {
+                    DispatchQueue.main.async(execute: { () -> Void in
+                        completeLoading()
+                    })
+                }
             }
-        })
+        }
     }
     
     @objc private func handleLongPressWithGestureRecognizer(_ recognizer: UILongPressGestureRecognizer) {

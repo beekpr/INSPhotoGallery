@@ -21,20 +21,20 @@ import UIKit
 import YYWebImage
 
 private func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l < r
-  case (nil, _?):
-    return true
-  default:
-    return false
-  }
+    switch (lhs, rhs) {
+    case let (l?, r?):
+        return l < r
+    case (nil, _?):
+        return true
+    default:
+        return false
+    }
 }
 
 
 class INSScalingImageView: UIScrollView {
-    lazy var imageView: UIImageView = {
-        let imageView = UIImageView(frame: self.bounds)
+    lazy var imageView: YYAnimatedImageView = {
+        let imageView = YYAnimatedImageView(frame: self.bounds)
         self.addSubview(imageView)
         return imageView
     }()
@@ -57,7 +57,7 @@ class INSScalingImageView: UIScrollView {
         setupImageScrollView()
         updateZoomScale()
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupImageScrollView()
@@ -99,7 +99,6 @@ class INSScalingImageView: UIScrollView {
     
     private func updateImage(_ image: UIImage?) {
         let size = image?.size ?? CGSize.zero
-        
         imageView.transform = CGAffineTransform.identity
         imageView.image = image
         imageView.frame = CGRect(origin: CGPoint.zero, size: size)
@@ -120,7 +119,7 @@ class INSScalingImageView: UIScrollView {
             self.maximumZoomScale = max(minimumScale, self.maximumZoomScale)
             
             self.zoomScale = minimumZoomScale
-
+            
             // scrollView.panGestureRecognizer.enabled is on by default and enabled by
             // viewWillLayoutSubviews in the container controller so disable it here
             // to prevent an interference with the container controller's pan gesture.

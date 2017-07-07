@@ -18,6 +18,7 @@
 //  limitations under the License.
 
 import UIKit
+import YYWebImage
 
 public protocol INSPhotosOverlayViewable:class {
     weak var photosViewController: INSPhotosViewController? { get set }
@@ -103,9 +104,9 @@ open class INSPhotosOverlayView: UIView , INSPhotosOverlayViewable {
             
             UIView.animate(withDuration: 0.2, delay: 0.0, options: [.allowAnimatedContent, .allowUserInteraction], animations: { () -> Void in
                 self.alpha = hidden ? 0.0 : 1.0
-                }, completion: { result in
-                    self.alpha = 1.0
-                    self.isHidden = hidden
+            }, completion: { result in
+                self.alpha = 1.0
+                self.isHidden = hidden
             })
         } else {
             self.isHidden = hidden
@@ -114,7 +115,7 @@ open class INSPhotosOverlayView: UIView , INSPhotosOverlayViewable {
     
     open func populateWithPhoto(_ photo: INSPhotoViewable) {
         self.currentPhoto = photo
-
+        
         if let photosViewController = photosViewController {
             if let index = photosViewController.dataSource.indexOfPhoto(photo) {
                 navigationItem.title = String(format:NSLocalizedString("%d of %d",comment:""), index+1, photosViewController.dataSource.numberOfPhotos)
@@ -129,14 +130,19 @@ open class INSPhotosOverlayView: UIView , INSPhotosOverlayViewable {
     }
     
     @objc private func actionButtonTapped(_ sender: UIBarButtonItem) {
-        if let currentPhoto = currentPhoto {
-            currentPhoto.loadImageWithCompletionHandler({ [weak self] (image, error) -> () in
-                if let image = (image ?? currentPhoto.thumbnailImage) {
-                    let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
-                    activityController.popoverPresentationController?.barButtonItem = sender
-                    self?.photosViewController?.present(activityController, animated: true, completion: nil)
-                }
-            });
+        if let currentPhoto = currentPhoto, let imageUrl = currentPhoto.imageURL {
+            YYWebImageManager.shared().requestImage(with: imageUrl,
+                                                    options: .setImageWithFadeAnimation,
+                                                    progress: nil,
+                                                    transform: nil,
+                                                    completion: { [weak self] (image, _, _, _, error) in
+                                                        
+                                                        if let image = (image ?? currentPhoto.thumbnailImage) {
+                                                            let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+                                                            activityController.popoverPresentationController?.barButtonItem = sender
+                                                            self?.photosViewController?.present(activityController, animated: true, completion: nil)
+                                                        }
+            })
         }
     }
     
@@ -172,7 +178,7 @@ open class INSPhotosOverlayView: UIView , INSPhotosOverlayViewable {
         rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(INSPhotosOverlayView.actionButtonTapped(_:)))
     }
     
- 
+    
     
     private func setupCaptionLabel() {
         captionLabel = UILabel()

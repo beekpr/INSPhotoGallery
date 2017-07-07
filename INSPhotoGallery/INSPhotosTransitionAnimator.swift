@@ -84,7 +84,7 @@ class INSPhotosTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioni
     func setupTransitionContainerHierarchyWithTransitionContext(_ transitionContext: UIViewControllerContextTransitioning) {
         
         if let toView = transitionContext.view(forKey: UITransitionContextViewKey.to),
-           let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) {
+            let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) {
             toView.frame = transitionContext.finalFrame(for: toViewController)
             let containerView = transitionContext.containerView
             
@@ -106,7 +106,7 @@ class INSPhotosTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioni
         let endingAlpha: CGFloat = dismissing ? 0.0 : 1.0
         
         fadeView?.alpha = beginningAlpha
-
+        
         UIView.animate(withDuration: fadeDurationForTransitionContext(transitionContext), animations: { () -> Void in
             fadeView?.alpha = endingAlpha
         }) { finished in
