@@ -18,7 +18,6 @@
 		642427421CDE10970037E8DA /* INSPhotosTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642427381CDE10970037E8DA /* INSPhotosTransitionAnimator.swift */; };
 		642427431CDE10970037E8DA /* INSPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642427391CDE10970037E8DA /* INSPhotosViewController.swift */; };
 		642427441CDE10970037E8DA /* INSPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6424273A1CDE10970037E8DA /* INSPhotoViewController.swift */; };
-		642427451CDE10970037E8DA /* INSScalingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6424273B1CDE10970037E8DA /* INSScalingImageView.swift */; };
 		642427461CDE10970037E8DA /* UIVIew+INSPhotoViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6424273C1CDE10970037E8DA /* UIVIew+INSPhotoViewer.swift */; };
 		D2EF35F51CB288F300033131 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EF35F41CB288F300033131 /* AppDelegate.swift */; };
 		D2EF35F71CB288F300033131 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EF35F61CB288F300033131 /* ViewController.swift */; };
@@ -31,6 +30,13 @@
 		D2EF36201CB299CF00033131 /* CustomOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2EF361F1CB299CF00033131 /* CustomOverlayView.xib */; };
 		D2EF36221CB29C6600033131 /* CustomPhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EF36211CB29C6600033131 /* CustomPhotoModel.swift */; };
 		D2EF36241CB2A67800033131 /* CustomModelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EF36231CB2A67800033131 /* CustomModelViewController.swift */; };
+		F6AAAC521F0FD1AF00F62432 /* INSScalingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6424273B1CDE10970037E8DA /* INSScalingImageView.swift */; };
+		F6AAAC541F0FD3CC00F62432 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6AAAC531F0FD3CC00F62432 /* Kingfisher.framework */; };
+		F6AAAC551F0FD3D200F62432 /* YYWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6AAAC4F1F0FD19700F62432 /* YYWebImage.framework */; };
+		F6AAAC561F0FD3E200F62432 /* YYWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6AAAC4F1F0FD19700F62432 /* YYWebImage.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		F6AAAC571F0FD3FA00F62432 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFDCCEF4783A040A397D6717 /* Pods.framework */; };
+		F6AAAC581F0FD40000F62432 /* Pods_INSPhotoGallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 043F1D6415A9A5BC7A90DF71 /* Pods_INSPhotoGallery.framework */; };
+		F6AAAC591F0FD40600F62432 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6AAAC531F0FD3CC00F62432 /* Kingfisher.framework */; };
 		FB44620B1AE393EEB9BC3649 /* Pods_INSPhotoGallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 043F1D6415A9A5BC7A90DF71 /* Pods_INSPhotoGallery.framework */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +95,8 @@
 		D2EF361F1CB299CF00033131 /* CustomOverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomOverlayView.xib; sourceTree = "<group>"; };
 		D2EF36211CB29C6600033131 /* CustomPhotoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPhotoModel.swift; sourceTree = "<group>"; };
 		D2EF36231CB2A67800033131 /* CustomModelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomModelViewController.swift; sourceTree = "<group>"; };
+		F6AAAC4F1F0FD19700F62432 /* YYWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YYWebImage.framework; path = "../../../../Library/Developer/Xcode/DerivedData/INSPhotoGallery-ctivzahoduonyhcesgxdlnhnwcoz/Build/Products/Debug-iphonesimulator/YYWebImage/YYWebImage.framework"; sourceTree = "<group>"; };
+		F6AAAC531F0FD3CC00F62432 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = "../../../../Library/Developer/Xcode/DerivedData/INSPhotoGallery-ctivzahoduonyhcesgxdlnhnwcoz/Build/Products/Debug-iphonesimulator/Kingfisher/Kingfisher.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +104,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6AAAC571F0FD3FA00F62432 /* Pods.framework in Frameworks */,
+				F6AAAC561F0FD3E200F62432 /* YYWebImage.framework in Frameworks */,
+				F6AAAC591F0FD40600F62432 /* Kingfisher.framework in Frameworks */,
+				F6AAAC581F0FD40000F62432 /* Pods_INSPhotoGallery.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +115,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6AAAC551F0FD3D200F62432 /* YYWebImage.framework in Frameworks */,
+				F6AAAC541F0FD3CC00F62432 /* Kingfisher.framework in Frameworks */,
 				6424272D1CDE10750037E8DA /* INSPhotoGalleryFramework.framework in Frameworks */,
 				FB44620B1AE393EEB9BC3649 /* Pods_INSPhotoGallery.framework in Frameworks */,
 			);
@@ -133,6 +147,8 @@
 		6C22ABAEE0CC1A71AB7B6AF8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F6AAAC531F0FD3CC00F62432 /* Kingfisher.framework */,
+				F6AAAC4F1F0FD19700F62432 /* YYWebImage.framework */,
 				BFDCCEF4783A040A397D6717 /* Pods.framework */,
 				043F1D6415A9A5BC7A90DF71 /* Pods_INSPhotoGallery.framework */,
 			);
@@ -338,7 +354,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		AD54B7D6CFDA54F486B6350B /* [CP] Embed Pods Frameworks */ = {
@@ -368,9 +384,9 @@
 				642427421CDE10970037E8DA /* INSPhotosTransitionAnimator.swift in Sources */,
 				642427411CDE10970037E8DA /* INSPhotosOverlayView.swift in Sources */,
 				642427441CDE10970037E8DA /* INSPhotoViewController.swift in Sources */,
-				642427451CDE10970037E8DA /* INSScalingImageView.swift in Sources */,
 				642427461CDE10970037E8DA /* UIVIew+INSPhotoViewer.swift in Sources */,
 				6424273F1CDE10970037E8DA /* INSPhotosDataSource.swift in Sources */,
+				F6AAAC521F0FD1AF00F62432 /* INSScalingImageView.swift in Sources */,
 				6424273D1CDE10970037E8DA /* INSPhoto.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

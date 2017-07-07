@@ -1,15 +1,26 @@
 PODS:
   - INSNibLoading (1.0.1)
   - Kingfisher (3.0.1)
+  - YYCache (1.0.4)
+  - YYImage (1.0.4):
+    - YYImage/Core (= 1.0.4)
+  - YYImage/Core (1.0.4)
+  - YYWebImage (1.0.5):
+    - YYCache
+    - YYImage
 
 DEPENDENCIES:
   - INSNibLoading
   - Kingfisher
+  - YYWebImage
 
 SPEC CHECKSUMS:
   INSNibLoading: 1b8d0ee31b94c124bffe2609e697e0a43117a78f
   Kingfisher: d5a491b45ea453d90a31bd2c0831d5243e73a73f
+  YYCache: 8105b6638f5e849296c71f331ff83891a4942952
+  YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
+  YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
 
-PODFILE CHECKSUM: 65ef0a362e355fd18c77f31b51039f3d5b311896
+PODFILE CHECKSUM: c4e3ba6b7b35dfd20f05eaa515e4a042c8ca2324
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.2.1
