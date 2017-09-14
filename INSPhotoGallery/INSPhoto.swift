@@ -17,7 +17,6 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-import Foundation
 import UIKit
 /*
  * This is marked as @objc because of Swift bug http://stackoverflow.com/questions/30100787/fatal-error-array-cannot-be-bridged-from-objective-c-why-are-you-even-trying when passing for example [INSPhoto] array

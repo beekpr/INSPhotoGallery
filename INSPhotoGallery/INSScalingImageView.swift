@@ -17,8 +17,7 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-import UIKit
-import YYWebImage
+import SDWebImage
 
 private func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
     switch (lhs, rhs) {
@@ -33,8 +32,8 @@ private func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 
 
 class INSScalingImageView: UIScrollView {
-    lazy var imageView: YYAnimatedImageView = {
-        let imageView = YYAnimatedImageView(frame: self.bounds)
+    lazy var imageView: FLAnimatedImageView = {
+        let imageView = FLAnimatedImageView(frame: self.bounds)
         self.addSubview(imageView)
         return imageView
     }()
@@ -44,7 +43,7 @@ class INSScalingImageView: UIScrollView {
             updateImage(image)
         }
     }
-    
+
     override var frame: CGRect {
         didSet {
             updateZoomScale()
