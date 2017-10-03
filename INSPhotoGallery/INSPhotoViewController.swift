@@ -82,7 +82,7 @@ open class INSPhotoViewController: UIViewController, UIScrollViewDelegate {
             self.activityIndicator.stopAnimating()
             loadFullSizeImage()
         } else {
-            loadThumbnailImage()
+            loadFullSizeImage()
         }
         
     }
@@ -92,44 +92,19 @@ open class INSPhotoViewController: UIViewController, UIScrollViewDelegate {
         scalingImageView.frame = view.bounds
     }
     
-    private func loadThumbnailImage() {
-        view.bringSubview(toFront: activityIndicator)
-        self.scalingImageView.imageView.sd_setImage(with: self.photo.thumbnailImageURL) { [weak self] (image, _, _, _) in
-            guard let image = image else {
-                return
-            }
-            
-            let completeLoading = {
-                if !image.isGIF() {
-                    self?.scalingImageView.image = image
-                }
-                if image != nil {
-                    self?.activityIndicator.stopAnimating()
-                }
-                self?.loadFullSizeImage()
-            }
-            
-            if Thread.isMainThread {
-                completeLoading()
-            } else {
-                DispatchQueue.main.async(execute: { () -> Void in
-                    completeLoading()
-                })
-            }
-        }
-    }
-    
     private func loadFullSizeImage() {
         view.bringSubview(toFront: activityIndicator)
-        self.scalingImageView.imageView.sd_setImage(with: self.photo.imageURL) { [weak self] (image, _, _, _) in
+        
+        self.scalingImageView.imageView.sd_setImage(with: self.photo.thumbnailImageURL) { [weak self] (image, _, _, url) in
             guard let image = image else {
                 return
             }
-            
+
             let completeLoading = {
                 self?.activityIndicator.stopAnimating()
-                if !image.isGIF() {
-                    self?.scalingImageView.image = image
+                self?.scalingImageView.image = image
+                if image.isGIF() {
+                    self?.scalingImageView.imageView.sd_setImage(with: url, completed: nil)
                 }
             }
             
