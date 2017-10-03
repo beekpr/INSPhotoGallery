@@ -95,7 +95,7 @@ open class INSPhotoViewController: UIViewController, UIScrollViewDelegate {
     private func loadFullSizeImage() {
         view.bringSubview(toFront: activityIndicator)
         
-        self.scalingImageView.imageView.sd_setImage(with: self.photo.thumbnailImageURL) { [weak self] (image, _, _, url) in
+        self.scalingImageView.imageView.sd_setImage(with: self.photo.imageURL) { [weak self] (image, _, _, url) in
             guard let image = image else {
                 return
             }
