@@ -387,6 +387,7 @@ open class INSPhotosViewController: UIViewController, UIPageViewControllerDataSo
     }
     
     open func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        /*
         if interactiveDismissal {
             transitionAnimator.endingViewForAnimation = transitionAnimator.endingView?.ins_snapshotView()
             interactiveAnimator.animator = transitionAnimator
@@ -395,6 +396,7 @@ open class INSPhotosViewController: UIViewController, UIPageViewControllerDataSo
             
             return interactiveAnimator
         }
+        */
         return nil
     }
     
