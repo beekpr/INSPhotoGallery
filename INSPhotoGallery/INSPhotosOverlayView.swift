@@ -131,11 +131,10 @@ open class INSPhotosOverlayView: UIView , INSPhotosOverlayViewable {
     @objc private func actionButtonTapped(_ sender: UIBarButtonItem) {
         if let currentPhoto = currentPhoto, let imageUrl = currentPhoto.imageURL {
             SDWebImageManager.shared().loadImage(with: imageUrl, options: .highPriority, progress: nil, completed: { [weak self] (image, _, error, _, _, _) in
-                if let image = (image ?? currentPhoto.thumbnailImage) {
-                    let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
-                    activityController.popoverPresentationController?.barButtonItem = sender
-                    self?.photosViewController?.present(activityController, animated: true, completion: nil)
-                }
+                
+                let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+                activityController.popoverPresentationController?.barButtonItem = sender
+                self?.photosViewController?.present(activityController, animated: true, completion: nil)
             })
         }
     }
@@ -171,8 +170,6 @@ open class INSPhotosOverlayView: UIView , INSPhotosOverlayViewable {
         
         rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(INSPhotosOverlayView.actionButtonTapped(_:)))
     }
-    
-    
     
     private func setupCaptionLabel() {
         captionLabel = UILabel()

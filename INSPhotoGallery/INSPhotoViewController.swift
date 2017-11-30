@@ -74,17 +74,7 @@ open class INSPhotoViewController: UIViewController, UIScrollViewDelegate {
         view.addGestureRecognizer(doubleTapGestureRecognizer)
         view.addGestureRecognizer(longPressGestureRecognizer)
         
-        if let image = photo.image {
-            self.scalingImageView.image = image
-            self.activityIndicator.stopAnimating()
-        } else if let thumbnailImage = photo.thumbnailImage {
-            self.scalingImageView.image = thumbnailImage
-            self.activityIndicator.stopAnimating()
-            loadFullSizeImage()
-        } else {
-            loadFullSizeImage()
-        }
-        
+        loadFullSizeImage()
     }
     
     open override func viewWillLayoutSubviews() {
@@ -95,26 +85,64 @@ open class INSPhotoViewController: UIViewController, UIScrollViewDelegate {
     private func loadFullSizeImage() {
         view.bringSubview(toFront: activityIndicator)
         
-        self.scalingImageView.imageView.sd_setImage(with: self.photo.imageURL) { [weak self] (image, _, _, url) in
-            guard let image = image else {
-                return
-            }
+        guard let url = self.photo.imageURL else {
+            return
+        }
+        
+        // Retrieve Image from Cache
+        if let image = SDImageCache.shared().imageFromCache(forKey: url.absoluteString) {
+            
+            // Stop Loading Animation
+            self.activityIndicator.stopAnimating()
+           
+            let path = SDImageCache.shared().defaultCachePath(forKey: url.absoluteString)
+            if let animatedImagePath = path, let data = NSData(contentsOfFile: animatedImagePath) as Data? {
 
-            let completeLoading = {
-                self?.activityIndicator.stopAnimating()
-                self?.scalingImageView.image = image
                 if image.isGIF() {
-                    self?.scalingImageView.imageView.sd_setImage(with: url, completed: nil)
+                    // Set Animated Image
+                    let animatedImage = FLAnimatedImage(gifData: data)
+                    self.scalingImageView.animatedImage = animatedImage
+                }
+                else {
+                    // Set  Image
+                    let image = UIImage(data: data)
+                    self.scalingImageView.image = image
                 }
             }
+        }
+        else {
             
-            if Thread.isMainThread {
-                completeLoading()
-            } else {
-                DispatchQueue.main.async(execute: { () -> Void in
-                    completeLoading()
-                })
-            }
+            // Download Image
+            let imageDownloader = SDWebImageDownloader.shared()
+            imageDownloader.setValue(self.photo.httpHeaderValue, forHTTPHeaderField: self.photo.httpHeaderKey)
+            imageDownloader.downloadImage(with: url,
+                                          options: .highPriority,
+                                          progress: nil,
+                                          completed: { [weak self] image, data, _, _  in
+                                    
+                                            self?.activityIndicator.stopAnimating()
+
+                                            let imageFormat = NSData.sd_imageFormat(forImageData: data)
+                                            if imageFormat == .GIF {
+                                                if let imageData = data {
+                                                    
+                                                    // Store in Cache
+                                                    SDImageCache.shared().storeImageData(toDisk: imageData, forKey: url.absoluteString)
+                                                    
+                                                    // Set Animated Image
+                                                    let animatedImage = FLAnimatedImage(animatedGIFData: imageData)
+                                                    self?.scalingImageView.animatedImage = animatedImage
+                                                }
+                                            }
+                                            else if let image = image {
+                                                
+                                                // Store in Cache
+                                                SDImageCache.shared().store(image, forKey: url.absoluteString)
+                                                
+                                                // Set Image
+                                                self?.scalingImageView.image = image
+                                            }
+            })
         }
     }
     

@@ -19,45 +19,28 @@
 
 import UIKit
 /*
- * This is marked as @objc because of Swift bug http://stackoverflow.com/questions/30100787/fatal-error-array-cannot-be-bridged-from-objective-c-why-are-you-even-trying when passing for example [INSPhoto] array
- * to INSPhotosViewController
+ This is marked as @objc because of Swift bug http://stackoverflow.com/questions/30100787/fatal-error-array-cannot-be-bridged-from-objective-c-why-are-you-even-trying when passing for example [INSPhoto] array to INSPhotosViewController
  */
 @objc public protocol INSPhotoViewable: class {
-    var imageURL: URL? { get }
-    var thumbnailImageURL: URL? { get }
-    var image: UIImage? { get }
-    var thumbnailImage: UIImage? { get }
-    @objc optional var isDeletable: Bool { get }
     
+    var imageURL: URL? { get }
     var attributedTitle: NSAttributedString? { get }
+    @objc var httpHeaderKey: String? { get }
+    @objc var httpHeaderValue: String? { get }
+    @objc optional var isDeletable: Bool { get }
 }
 
 @objc open class INSPhoto: NSObject, INSPhotoViewable {
     
-    @objc open var image: UIImage?
-    @objc open var thumbnailImage: UIImage?
-    @objc open var isDeletable: Bool
-    
     public var imageURL: URL?
-    public var thumbnailImageURL: URL?
-    
+    @objc open var isDeletable: Bool
     @objc open var attributedTitle: NSAttributedString?
     
-    public init(image: UIImage?, thumbnailImage: UIImage?) {
-        self.image = image
-        self.thumbnailImage = thumbnailImage
-        self.isDeletable = false
-    }
+    public var httpHeaderKey: String?
+    public var httpHeaderValue: String?
     
-    public init(imageURL: URL?, thumbnailImageURL: URL?) {
+    public init (imageURL: URL?) {
         self.imageURL = imageURL
-        self.thumbnailImageURL = thumbnailImageURL
-        self.isDeletable = false
-    }
-    
-    public init (imageURL: URL?, thumbnailImage: UIImage?) {
-        self.imageURL = imageURL
-        self.thumbnailImage = thumbnailImage
         self.isDeletable = false
     }
     

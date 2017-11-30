@@ -43,6 +43,12 @@ class INSScalingImageView: UIScrollView {
             updateImage(image)
         }
     }
+    
+    var animatedImage: FLAnimatedImage? {
+        didSet {
+            updateAnimatedImage(animatedImage)
+        }
+    }
 
     override var frame: CGRect {
         didSet {
@@ -100,6 +106,17 @@ class INSScalingImageView: UIScrollView {
         let size = image?.size ?? CGSize.zero
         imageView.transform = CGAffineTransform.identity
         imageView.image = image
+        imageView.frame = CGRect(origin: CGPoint.zero, size: size)
+        self.contentSize = size
+        
+        updateZoomScale()
+        centerScrollViewContents()
+    }
+    
+    private func updateAnimatedImage(_ animatedImage: FLAnimatedImage?) {
+        let size = animatedImage?.size ?? CGSize.zero
+        imageView.transform = CGAffineTransform.identity
+        imageView.animatedImage = animatedImage
         imageView.frame = CGRect(origin: CGPoint.zero, size: size)
         self.contentSize = size
         

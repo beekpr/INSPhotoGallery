@@ -403,7 +403,7 @@ open class INSPhotosViewController: UIViewController, UIPageViewControllerDataSo
     // MARK: - UIResponder
     
     open override func copy(_ sender: Any?) {
-        UIPasteboard.general.image = currentPhoto?.image ?? currentPhotoViewController?.scalingImageView.image
+        UIPasteboard.general.image = currentPhotoViewController?.scalingImageView.image
     }
     
     open override var canBecomeFirstResponder: Bool {
@@ -411,7 +411,7 @@ open class INSPhotosViewController: UIViewController, UIPageViewControllerDataSo
     }
     
     open override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
-        if let _ = currentPhoto?.image ?? currentPhotoViewController?.scalingImageView.image , shouldHandleLongPressGesture && action == #selector(NSObject.copy) {
+        if let _ = currentPhotoViewController?.scalingImageView.image , shouldHandleLongPressGesture && action == #selector(NSObject.copy) {
             return true
         }
         return false
