@@ -114,7 +114,9 @@ open class INSPhotoViewController: UIViewController, UIScrollViewDelegate {
             
             // Download Image
             let imageDownloader = SDWebImageDownloader.shared()
-            imageDownloader.setValue(self.photo.httpHeaderValue, forHTTPHeaderField: self.photo.httpHeaderKey)
+            if let value = self.photo.httpHeaderValue, let field = self.photo.httpHeaderKey, value.count > 0 {
+                imageDownloader.setValue(value, forHTTPHeaderField: field)
+            }
             imageDownloader.downloadImage(with: url,
                                           options: .highPriority,
                                           progress: nil,
