@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		058216EAD55262B95C56FFD8 /* Pods_INSPhotoGallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 043F1D6415A9A5BC7A90DF71 /* Pods_INSPhotoGallery.framework */; };
+		56CA4C9D30488EA33FE87572 /* Pods_INSPhotoGallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 043F1D6415A9A5BC7A90DF71 /* Pods_INSPhotoGallery.framework */; };
 		642427291CDE10750037E8DA /* INSPhotoGalleryFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 642427281CDE10750037E8DA /* INSPhotoGalleryFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6424272D1CDE10750037E8DA /* INSPhotoGalleryFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 642427261CDE10740037E8DA /* INSPhotoGalleryFramework.framework */; };
 		6424272E1CDE10750037E8DA /* INSPhotoGalleryFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 642427261CDE10740037E8DA /* INSPhotoGalleryFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -31,13 +33,6 @@
 		D2EF36221CB29C6600033131 /* CustomPhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EF36211CB29C6600033131 /* CustomPhotoModel.swift */; };
 		D2EF36241CB2A67800033131 /* CustomModelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EF36231CB2A67800033131 /* CustomModelViewController.swift */; };
 		F6AAAC521F0FD1AF00F62432 /* INSScalingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6424273B1CDE10970037E8DA /* INSScalingImageView.swift */; };
-		F6AAAC541F0FD3CC00F62432 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6AAAC531F0FD3CC00F62432 /* Kingfisher.framework */; };
-		F6AAAC551F0FD3D200F62432 /* YYWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6AAAC4F1F0FD19700F62432 /* YYWebImage.framework */; };
-		F6AAAC561F0FD3E200F62432 /* YYWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6AAAC4F1F0FD19700F62432 /* YYWebImage.framework */; settings = {ATTRIBUTES = (Required, ); }; };
-		F6AAAC571F0FD3FA00F62432 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFDCCEF4783A040A397D6717 /* Pods.framework */; };
-		F6AAAC581F0FD40000F62432 /* Pods_INSPhotoGallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 043F1D6415A9A5BC7A90DF71 /* Pods_INSPhotoGallery.framework */; };
-		F6AAAC591F0FD40600F62432 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6AAAC531F0FD3CC00F62432 /* Kingfisher.framework */; };
-		FB44620B1AE393EEB9BC3649 /* Pods_INSPhotoGallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 043F1D6415A9A5BC7A90DF71 /* Pods_INSPhotoGallery.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +77,7 @@
 		6424273C1CDE10970037E8DA /* UIVIew+INSPhotoViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIVIew+INSPhotoViewer.swift"; path = "../../INSPhotoGallery/UIVIew+INSPhotoViewer.swift"; sourceTree = "<group>"; };
 		A122ACF7A5F3C75B8FB59EED /* Pods-INSPhotoGallery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-INSPhotoGallery.release.xcconfig"; path = "Pods/Target Support Files/Pods-INSPhotoGallery/Pods-INSPhotoGallery.release.xcconfig"; sourceTree = "<group>"; };
 		BFDCCEF4783A040A397D6717 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD9D2C59215293FA008705E0 /* Pods_INSPhotoGalleryFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_INSPhotoGalleryFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2EF35F11CB288F300033131 /* INSPhotoGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = INSPhotoGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2EF35F41CB288F300033131 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2EF35F61CB288F300033131 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -104,10 +100,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6AAAC571F0FD3FA00F62432 /* Pods.framework in Frameworks */,
-				F6AAAC561F0FD3E200F62432 /* YYWebImage.framework in Frameworks */,
-				F6AAAC591F0FD40600F62432 /* Kingfisher.framework in Frameworks */,
-				F6AAAC581F0FD40000F62432 /* Pods_INSPhotoGallery.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,10 +107,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6AAAC551F0FD3D200F62432 /* YYWebImage.framework in Frameworks */,
-				F6AAAC541F0FD3CC00F62432 /* Kingfisher.framework in Frameworks */,
 				6424272D1CDE10750037E8DA /* INSPhotoGalleryFramework.framework in Frameworks */,
-				FB44620B1AE393EEB9BC3649 /* Pods_INSPhotoGallery.framework in Frameworks */,
+				56CA4C9D30488EA33FE87572 /* Pods_INSPhotoGallery.framework in Frameworks */,
+				058216EAD55262B95C56FFD8 /* Pods_INSPhotoGallery.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +138,7 @@
 		6C22ABAEE0CC1A71AB7B6AF8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CD9D2C59215293FA008705E0 /* Pods_INSPhotoGalleryFramework.framework */,
 				F6AAAC531F0FD3CC00F62432 /* Kingfisher.framework */,
 				F6AAAC4F1F0FD19700F62432 /* YYWebImage.framework */,
 				BFDCCEF4783A040A397D6717 /* Pods.framework */,
@@ -253,7 +245,6 @@
 				D2EF35EF1CB288F300033131 /* Resources */,
 				642427321CDE10750037E8DA /* Embed Frameworks */,
 				AD54B7D6CFDA54F486B6350B /* [CP] Embed Pods Frameworks */,
-				17D7FE4374E94EE2F6A42339 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -327,34 +318,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		17D7FE4374E94EE2F6A42339 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-INSPhotoGallery/Pods-INSPhotoGallery-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		430D737234B234F1BDA3BFFA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-INSPhotoGallery-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AD54B7D6CFDA54F486B6350B /* [CP] Embed Pods Frameworks */ = {
@@ -363,9 +342,20 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-INSPhotoGallery/Pods-INSPhotoGallery-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/INSNibLoading/INSNibLoading.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/YYCache/YYCache.framework",
+				"${BUILT_PRODUCTS_DIR}/YYImage/YYImage.framework",
+				"${BUILT_PRODUCTS_DIR}/YYWebImage/YYWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/INSNibLoading.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYCache.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -453,7 +443,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -477,7 +467,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.inspace.INSPhotoGalleryFramework;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
