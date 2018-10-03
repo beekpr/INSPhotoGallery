@@ -78,7 +78,7 @@ class INSScalingImageView: UIScrollView {
         showsVerticalScrollIndicator = false
         showsHorizontalScrollIndicator = false;
         bouncesZoom = true;
-        decelerationRate = UIScrollViewDecelerationRateFast;
+        decelerationRate = UIScrollView.DecelerationRate.fast;
     }
     
     func centerScrollViewContents() {
@@ -99,7 +99,7 @@ class INSScalingImageView: UIScrollView {
         }
         
         // Use `contentInset` to center the contents in the scroll view. Reasoning explained here: http://petersteinberger.com/blog/2013/how-to-center-uiscrollview/
-        self.contentInset = UIEdgeInsetsMake(verticalInset, horizontalInset, verticalInset, horizontalInset);
+        self.contentInset = UIEdgeInsets.init(top: verticalInset, left: horizontalInset, bottom: verticalInset, right: horizontalInset);
     }
     
     private func updateImage(_ image: UIImage?) {
