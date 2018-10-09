@@ -20,7 +20,7 @@
 import SDWebImage
 
 public protocol INSPhotosOverlayViewable:class {
-    weak var photosViewController: INSPhotosViewController? { get set }
+    var photosViewController: INSPhotosViewController? { get set }
     
     func populateWithPhoto(_ photo: INSPhotoViewable)
     func setHidden(_ hidden: Bool, animated: Bool)
@@ -131,7 +131,9 @@ open class INSPhotosOverlayView: UIView , INSPhotosOverlayViewable {
     @objc private func actionButtonTapped(_ sender: UIBarButtonItem) {
         if let currentPhoto = currentPhoto, let imageUrl = currentPhoto.imageURL {
             SDWebImageManager.shared().loadImage(with: imageUrl, options: .highPriority, progress: nil, completed: { [weak self] (image, _, error, _, _, _) in
-                
+                guard let image = image else {
+                    return
+                }
                 let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
                 activityController.popoverPresentationController?.barButtonItem = sender
                 self?.photosViewController?.present(activityController, animated: true, completion: nil)
